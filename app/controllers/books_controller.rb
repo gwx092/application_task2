@@ -26,7 +26,7 @@ before_action :ensure_correct_user, only: [:update,:edit,:destroy]
 
   def edit
     @book = Book.find(params[:id])
-    @user = User.find(params[:id])
+    
   end
 
   def update
