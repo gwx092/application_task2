@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  before_action :set_user, only: [:followings, :followers]
+  #before_action :set_user, only: [:followings, :followers]
 
   def create
     @user = User.find(params[:user_id])
@@ -15,13 +15,11 @@ class RelationshipsController < ApplicationController
   def followings
     user = User.find(params[:user_id])
     @users = user.followings
-    @users = @user.followings
   end
 
   def followers
     user = User.find(params[:user_id])
     @users = user.followers
-    @users = @user.followers
   end
 
   private
