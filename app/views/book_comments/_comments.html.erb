@@ -1,0 +1,18 @@
+
+<div class="d-inline-flex flex-column">
+  <% books.book_comments.each do |book_comment| %>
+  <div class="d-flex">
+    <div class="mb-3">
+    <%= image_tag book_comment.user.get_profile_image, size:'50x50' %><br>
+    <%= book_comment.user.name %>
+    <%= book_comment.created_at.strftime('%Y/%m/%d') %>
+    </div>
+    <div class="ml-3">
+    <%= book_comment.comment %>
+    <% if book_comment.user == current_user %>
+    <%= link_to "destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete, remote: true, class: "btn btn-sm btn-danger" %>
+    <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
